@@ -1,0 +1,19 @@
+{% extends 'bases/basic.html' %}
+
+{% block meta %}
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+{% block title %} {{ name }} {% endblock %}
+{% block content %}
+    <p>
+        variables: <br>
+        saludo = {{ hola }}<br>
+        parametros: <br>
+        params = {{ name }},num(int) = {{ num }}
+    </p>
+    <p>
+        {% for i in mylist %}
+            {{ i }}<br>
+        {% endfor %}
+    </p>
+{% endblock %}

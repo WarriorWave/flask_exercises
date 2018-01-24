@@ -1,0 +1,27 @@
+{% extends 'bases/basic.html' %}
+{% from 'macros/_hellotitle.html' import show_hello_title %}
+{% from 'macros/_forms_fields.html' import render_field %}
+
+{% block meta %}
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+{% block title %} {{ name }} {% endblock %}
+{% block content %}
+    <p>
+        El parametro get uno es: name={{ name }}
+        <br>
+        {{ show_hello_title("Hello World") }}
+    </p>
+
+    <div>
+        <form action="/param/1/" method="post">
+            <div class="form-group">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                {{ render_field(form.username, class = "form-control", required="") }}
+                {{ render_field(form.email, class = "form-control", required="") }}
+                {{ render_field(form.comment, class = "form-control", required="") }}
+            </div>
+            <button type="submit" class="btn btn-primary"> Enviar </button>
+        </form>
+    </div>
+{% endblock %}

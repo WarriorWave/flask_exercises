@@ -1,0 +1,21 @@
+{% extends 'bases/basic.html' %}
+{% from 'macros/_forms_fields.html' import render_field %}
+
+{% block meta %}
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+{% block title %} login {% endblock %}
+{% block content %}
+    <h1>Login | ingresa usuario y contraseña</h1>
+
+    <div>
+        <form action="/login/" method="post">
+            <div class="form-group">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                {{ render_field(login.username, class = "form-control") }}
+                {{ render_field(login.password, class = "form-control") }}
+            </div>
+            <button type="submit" class="btn btn-primary"> Enviar </button>
+        </form>
+    </div>
+{% endblock %}
