@@ -1,0 +1,10 @@
+{% extends 'bases/basic.html' %}
+{% block title %} Cookies {% endblock %}
+{% block content %}
+    <div>
+        <h2> Cookie_name: {{ cookie_name }}</h2>
+        <h2> Session_name: {{ name }}</h2>
+        <h2> Session_pass: {{ passw }}</h2>
+        <a class="btn btn-default" href="/logout">Logout</a>
+    </div>
+{% endblock %}
